@@ -23,7 +23,7 @@
       left: 0;
       height: 100%;
       width: 100%;
-      background: rgba(255, 255, 255, 0.93);
+      background: rgba(255, 255, 255, 0.85);
       z-index: -1;
     }
 
@@ -32,8 +32,6 @@
       padding: 20px;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     header img {
@@ -112,13 +110,11 @@
       flex-direction: column;
       align-items: center;
       padding: 40px 20px;
-      gap: 20px;
-      min-height: calc(100vh - 160px);
     }
 
     .donation-options h2 {
       color: #333;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .donation-buttons {
@@ -132,12 +128,12 @@
     .donation-buttons button {
       background-color: #28a745;
       color: white;
-      font-size: 18px;
       padding: 15px;
+      font-size: 18px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.2s ease;
+      transition: background-color 0.3s ease;
     }
 
     .donation-buttons button:hover {
@@ -177,21 +173,9 @@
         padding: 12px;
       }
 
-      .donation-options {
-        padding: 20px 10px;
-      }
-
-      .donation-buttons {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      }
-
-      .donation-buttons button {
-        font-size: 16px;
-        padding: 12px;
-      }
-
-      footer img {
-        height: 30px;
+      .donation-options h2 {
+        font-size: 20px;
+        text-align: center;
       }
     }
   </style>
@@ -202,8 +186,8 @@
     <img src="logo.png" alt="Logo da ONG">
   </header>
 
-  <!-- Tela inicial com nome e missão -->
   <div class="container" id="mainContainer">
+    <!-- Missão África -->
     <div class="left-panel">
       <h2>Missão África</h2>
       <p>
@@ -213,6 +197,7 @@
       <img src="africa.png" alt="Imagem da África">
     </div>
 
+    <!-- Formulário -->
     <div class="right-panel">
       <form id="nameForm" class="form-container">
         <input type="text" id="name" name="name" required placeholder="Digite seu nome">
@@ -221,7 +206,7 @@
     </div>
   </div>
 
-  <!-- Seção de seleção de valores -->
+  <!-- Seleção de valores -->
   <div class="donation-options" id="donationSelection">
     <h2>Escolha o valor da sua doação</h2>
     <div class="donation-buttons">
@@ -235,10 +220,10 @@
       <button onclick="goToCheckout('https://go.disruptybr.com.br/sbif0')">R$ 40</button>
       <button onclick="goToCheckout('https://go.disruptybr.com.br/y6yhy')">R$ 45</button>
       <button onclick="goToCheckout('https://go.disruptybr.com.br/mhgtb')">R$ 50</button>
+      <button onclick="outroValor()">Outro Valor</button>
     </div>
   </div>
 
-  <!-- Rodapé fixo após ambas as seções -->
   <footer>
     <img src="logo.png" alt="Logo rodapé">
   </footer>
@@ -258,6 +243,15 @@
 
     function goToCheckout(url) {
       window.location.href = url;
+    }
+
+    function outroValor() {
+      const valor = prompt("Digite o valor que deseja doar (somente números):");
+      if (valor && !isNaN(valor) && parseFloat(valor) > 0) {
+        alert(`Obrigado! Para doar R$ ${valor}, entre em contato com nossa equipe pelo WhatsApp ou acesse nosso canal de atendimento.`);
+      } else if (valor !== null) {
+        alert("Por favor, insira um valor válido.");
+      }
     }
   </script>
 
