@@ -23,7 +23,7 @@
       left: 0;
       height: 100%;
       width: 100%;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.93);
       z-index: -1;
     }
 
@@ -107,44 +107,40 @@
       background-color: #218838;
     }
 
-    .donation-selection {
+    .donation-options {
       display: none;
       flex-direction: column;
       align-items: center;
+      padding: 40px 20px;
       gap: 20px;
-      background-color: #fff;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 600px;
-      margin: 40px auto;
+      min-height: calc(100vh - 160px);
     }
 
-    .donation-selection h3 {
-      margin-bottom: 10px;
-      font-size: 24px;
+    .donation-options h2 {
       color: #333;
+      margin-bottom: 20px;
     }
 
-    .donation-options {
-      display: flex;
-      flex-wrap: wrap;
+    .donation-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 15px;
-      justify-content: center;
+      width: 100%;
+      max-width: 600px;
     }
 
-    .donation-options button {
+    .donation-buttons button {
       background-color: #28a745;
       color: white;
-      border: none;
-      padding: 15px 25px;
-      border-radius: 10px;
       font-size: 18px;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.2s ease;
     }
 
-    .donation-options button:hover {
+    .donation-buttons button:hover {
       background-color: #218838;
     }
 
@@ -176,15 +172,26 @@
       }
 
       .form-container input[type="text"],
-      .form-container input[type="submit"],
-      .donation-options button {
+      .form-container input[type="submit"] {
         font-size: 16px;
         padding: 12px;
       }
 
       .donation-options {
-        flex-direction: column;
-        width: 100%;
+        padding: 20px 10px;
+      }
+
+      .donation-buttons {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+
+      .donation-buttons button {
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      footer img {
+        height: 30px;
       }
     }
   </style>
@@ -195,9 +202,9 @@
     <img src="logo.png" alt="Logo da ONG">
   </header>
 
+  <!-- Tela inicial com nome e missão -->
   <div class="container" id="mainContainer">
-    <!-- Missão África -->
-    <div class="left-panel" id="missionPanel">
+    <div class="left-panel">
       <h2>Missão África</h2>
       <p>
         A ONG Missão África nasceu do desejo de combater a miséria em comunidades de Moçambique.
@@ -206,8 +213,7 @@
       <img src="africa.png" alt="Imagem da África">
     </div>
 
-    <!-- Formulário -->
-    <div class="right-panel" id="formPanel">
+    <div class="right-panel">
       <form id="nameForm" class="form-container">
         <input type="text" id="name" name="name" required placeholder="Digite seu nome">
         <input type="submit" value="Doar para Vaquinha">
@@ -215,23 +221,24 @@
     </div>
   </div>
 
-  <!-- Seleção de doações -->
-  <div class="donation-selection" id="donationSelection">
-    <h3>Escolha o valor da sua doação</h3>
-    <div class="donation-options">
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/a46js81bpw')">R$ 5,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/pslut')">R$ 10,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/2e3ar')">R$ 15,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/u9uoq')">R$ 20,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/usyoo')">R$ 25,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/l8b0c')">R$ 30,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/vqk7z')">R$ 35,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/sbif0')">R$ 40,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/y6yhy')">R$ 45,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/mhgtb')">R$ 50,00</button>
+  <!-- Seção de seleção de valores -->
+  <div class="donation-options" id="donationSelection">
+    <h2>Escolha o valor da sua doação</h2>
+    <div class="donation-buttons">
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/a46js81bpw')">R$ 5</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/pslut')">R$ 10</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/2e3ar')">R$ 15</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/u9uoq')">R$ 20</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/usyoo')">R$ 25</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/l8b0c')">R$ 30</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/vqk7z')">R$ 35</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/sbif0')">R$ 40</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/y6yhy')">R$ 45</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/mhgtb')">R$ 50</button>
     </div>
   </div>
 
+  <!-- Rodapé fixo após ambas as seções -->
   <footer>
     <img src="logo.png" alt="Logo rodapé">
   </footer>
