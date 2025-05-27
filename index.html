@@ -1,253 +1,53 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Missão África - Vaquinha</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+    align-items: center; /* Centraliza horizontalmente */
+  }
 
-    body {
-      display: flex;
-      flex-direction: column;
-      font-family: 'Segoe UI', sans-serif;
-      background: url('paiefilho.png') no-repeat center center fixed;
-      background-size: cover;
-      position: relative;
-    }
+  .left-panel, .right-panel {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    text-align: center; /* Centraliza texto */
+  }
 
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.85);
-      z-index: -1;
-    }
+  .left-panel p {
+    margin: 0 auto 20px;
+  }
 
-    .page-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
+  .form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 
-    header {
-      background-color: #28a745;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+  .form-container input[type="text"],
+  .form-container input[type="submit"] {
+    font-size: 16px;
+    padding: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
 
-    header img {
-      height: 50px;
-    }
+  .donation-options {
+    padding: 20px;
+    flex-direction: column; /* botoes empilhados verticalmente */
+    align-items: center;
+  }
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 40px;
-      gap: 40px;
-      justify-content: center;
-      align-items: center;
-    }
+  .donation-options button {
+    flex: none;
+    width: 90%;
+    max-width: 320px;
+    margin-bottom: 12px;
+    font-size: 18px;
+  }
 
-    .left-panel, .right-panel {
-      background-color: #fff;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      flex: 1;
-      max-width: 500px;
-      min-width: 280px;
-    }
-
-    .left-panel h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .left-panel p {
-      font-size: 16px;
-      color: #555;
-    }
-
-    .left-panel img {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-
-    .form-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .form-container input[type="text"] {
-      width: 100%;
-      padding: 15px;
-      font-size: 18px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    .form-container input[type="submit"] {
-      background-color: #28a745;
-      color: white;
-      font-size: 20px;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    .form-container input[type="submit"]:hover {
-      background-color: #218838;
-    }
-
-    .donation-options {
-      display: none;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 40px;
-      gap: 20px;
-    }
-
-    .donation-options button {
-      background-color: #28a745;
-      color: white;
-      font-size: 18px;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      min-width: 140px;
-      flex: 1 1 calc(25% - 20px);
-      max-width: 200px;
-    }
-
-    .donation-options button:hover {
-      background-color: #218838;
-    }
-
-    footer {
-      background-color: #333;
-      padding: 20px;
-      text-align: center;
-    }
-
-    footer img {
-      height: 35px;
-      opacity: 0.9;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        padding: 20px;
-      }
-
-      .left-panel, .right-panel {
-        width: 100%;
-        max-width: 100%;
-        padding: 20px;
-      }
-
-      .form-container input[type="text"],
-      .form-container input[type="submit"] {
-        font-size: 16px;
-        padding: 12px;
-      }
-
-      .donation-options {
-        padding: 20px;
-      }
-
-      .donation-options button {
-        flex: 1 1 100%;
-        max-width: 100%;
-      }
-
-      header img {
-        height: 40px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="page-content">
-    <header>
-      <img src="logo.png" alt="Logo da ONG">
-    </header>
-
-    <div class="container" id="mainContainer">
-      <!-- Missão África -->
-      <div class="left-panel">
-        <h2>Missão África</h2>
-        <p>
-          A ONG Missão África nasceu do desejo de combater a miséria em comunidades de Moçambique.
-          Com uma vaquinha, eles arrecadaram fundos para levar água potável e alimentos a uma região necessitada.
-        </p>
-        <img src="africa.png" alt="Imagem da África">
-      </div>
-
-      <!-- Formulário -->
-      <div class="right-panel">
-        <form id="nameForm" class="form-container">
-          <input type="text" id="name" name="name" required placeholder="Digite seu nome">
-          <input type="submit" value="Doar para Vaquinha">
-        </form>
-      </div>
-    </div>
-
-    <!-- Opções de doação -->
-    <div class="donation-options" id="donationSelection">
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/a46js81bpw')">R$ 5,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/pslut')">R$ 10,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/2e3ar')">R$ 15,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/u9uoq')">R$ 20,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/usyoo')">R$ 25,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/l8b0c')">R$ 30,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/vqk7z')">R$ 35,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/sbif0')">R$ 40,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/y6yhy')">R$ 45,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/mhgtb')">R$ 50,00</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/valorlivre')">Outro Valor</button>
-    </div>
-  </div>
-
-  <footer>
-    <img src="logo.png" alt="Logo rodapé">
-  </footer>
-
-  <script>
-    document.getElementById('nameForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const nome = document.getElementById('name').value.trim();
-
-      if (nome) {
-        document.getElementById('mainContainer').style.display = 'none';
-        document.getElementById('donationSelection').style.display = 'flex';
-      } else {
-        alert('Por favor, digite seu nome antes de continuar.');
-      }
-    });
-
-    function goToCheckout(url) {
-      window.location.href = url;
-    }
-  </script>
-
-</body>
-</html>
+  header img {
+    height: 40px;
+    margin: 0 auto;
+    display: block;
+  }
+}
