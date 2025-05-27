@@ -5,15 +5,18 @@
   <title>Missão África - Vaquinha</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
-      box-sizing: border-box;
+    html, body {
+      height: 100%;
+      margin: 0;
     }
 
     body {
-      margin: 0;
+      display: flex;
+      flex-direction: column;
       font-family: 'Segoe UI', sans-serif;
       background: url('paiefilho.png') no-repeat center center fixed;
       background-size: cover;
+      position: relative;
     }
 
     body::before {
@@ -27,11 +30,19 @@
       z-index: -1;
     }
 
+    .page-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
     header {
       background-color: #28a745;
       padding: 20px;
       display: flex;
       align-items: center;
+      justify-content: flex-start;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     header img {
@@ -41,7 +52,6 @@
     .container {
       display: flex;
       flex-wrap: wrap;
-      min-height: calc(100vh - 160px);
       padding: 40px;
       gap: 40px;
       justify-content: center;
@@ -107,36 +117,26 @@
 
     .donation-options {
       display: none;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px;
+      gap: 20px;
     }
 
-    .donation-options h2 {
-      color: #333;
-      margin-bottom: 30px;
-    }
-
-    .donation-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 15px;
-      width: 100%;
-      max-width: 600px;
-    }
-
-    .donation-buttons button {
+    .donation-options button {
       background-color: #28a745;
       color: white;
-      padding: 15px;
       font-size: 18px;
+      padding: 15px 25px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      min-width: 140px;
+      flex: 1 1 calc(25% - 20px);
+      max-width: 200px;
     }
 
-    .donation-buttons button:hover {
+    .donation-options button:hover {
       background-color: #218838;
     }
 
@@ -163,64 +163,67 @@
         padding: 20px;
       }
 
-      header img {
-        height: 40px;
-      }
-
       .form-container input[type="text"],
       .form-container input[type="submit"] {
         font-size: 16px;
         padding: 12px;
       }
 
-      .donation-options h2 {
-        font-size: 20px;
-        text-align: center;
+      .donation-options {
+        padding: 20px;
+      }
+
+      .donation-options button {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      header img {
+        height: 40px;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="logo.png" alt="Logo da ONG">
-  </header>
+  <div class="page-content">
+    <header>
+      <img src="logo.png" alt="Logo da ONG">
+    </header>
 
-  <div class="container" id="mainContainer">
-    <!-- Missão África -->
-    <div class="left-panel">
-      <h2>Missão África</h2>
-      <p>
-        A ONG Missão África nasceu do desejo de combater a miséria em comunidades de Moçambique.
-        Com uma vaquinha, eles arrecadaram fundos para levar água potável e alimentos a uma região necessitada.
-      </p>
-      <img src="africa.png" alt="Imagem da África">
+    <div class="container" id="mainContainer">
+      <!-- Missão África -->
+      <div class="left-panel">
+        <h2>Missão África</h2>
+        <p>
+          A ONG Missão África nasceu do desejo de combater a miséria em comunidades de Moçambique.
+          Com uma vaquinha, eles arrecadaram fundos para levar água potável e alimentos a uma região necessitada.
+        </p>
+        <img src="africa.png" alt="Imagem da África">
+      </div>
+
+      <!-- Formulário -->
+      <div class="right-panel">
+        <form id="nameForm" class="form-container">
+          <input type="text" id="name" name="name" required placeholder="Digite seu nome">
+          <input type="submit" value="Doar para Vaquinha">
+        </form>
+      </div>
     </div>
 
-    <!-- Formulário -->
-    <div class="right-panel">
-      <form id="nameForm" class="form-container">
-        <input type="text" id="name" name="name" required placeholder="Digite seu nome">
-        <input type="submit" value="Doar para Vaquinha">
-      </form>
-    </div>
-  </div>
-
-  <!-- Seleção de valores -->
-  <div class="donation-options" id="donationSelection">
-    <h2>Escolha o valor da sua doação</h2>
-    <div class="donation-buttons">
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/a46js81bpw')">R$ 5</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/pslut')">R$ 10</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/2e3ar')">R$ 15</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/u9uoq')">R$ 20</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/usyoo')">R$ 25</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/l8b0c')">R$ 30</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/vqk7z')">R$ 35</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/sbif0')">R$ 40</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/y6yhy')">R$ 45</button>
-      <button onclick="goToCheckout('https://go.disruptybr.com.br/mhgtb')">R$ 50</button>
-      <button onclick="outroValor()">Outro Valor</button>
+    <!-- Opções de doação -->
+    <div class="donation-options" id="donationSelection">
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/a46js81bpw')">R$ 5,00</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/pslut')">R$ 10,00</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/2e3ar')">R$ 15,00</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/u9uoq')">R$ 20,00</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/usyoo')">R$ 25,00</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/l8b0c')">R$ 30,00</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/vqk7z')">R$ 35,00</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/sbif0')">R$ 40,00</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/y6yhy')">R$ 45,00</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/mhgtb')">R$ 50,00</button>
+      <button onclick="goToCheckout('https://go.disruptybr.com.br/valorlivre')">Outro Valor</button>
     </div>
   </div>
 
@@ -243,15 +246,6 @@
 
     function goToCheckout(url) {
       window.location.href = url;
-    }
-
-    function outroValor() {
-      const valor = prompt("Digite o valor que deseja doar (somente números):");
-      if (valor && !isNaN(valor) && parseFloat(valor) > 0) {
-        alert(`Obrigado! Para doar R$ ${valor}, entre em contato com nossa equipe pelo WhatsApp ou acesse nosso canal de atendimento.`);
-      } else if (valor !== null) {
-        alert("Por favor, insira um valor válido.");
-      }
     }
   </script>
 
