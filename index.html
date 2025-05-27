@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Missão África - Vaquinha</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: url('paiefilho.png') no-repeat center center fixed;
-      background-size: cover;
+      font-family: Arial, sans-serif;
+      position: relative;
+      min-height: 100vh;
     }
 
     body::before {
@@ -21,170 +17,133 @@
       position: fixed;
       top: 0;
       left: 0;
-      height: 100%;
       width: 100%;
-      background: rgba(255, 255, 255, 0.93); /* menor opacidade */
+      height: 100%;
+      background-image: url('paiefilho.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.35; /* AQUI: MAIS VISÍVEL, MAS AINDA OPACTO */
       z-index: -1;
     }
 
-    header {
-      background-color: #28a745;
-      padding: 20px;
+    .header {
+      background-color: #2e7d32;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      justify-content: space-between;
+      padding: 10px 20px;
     }
 
-    header img {
+    .header img {
       height: 50px;
     }
 
     .container {
       display: flex;
       flex-wrap: wrap;
-      min-height: calc(100vh - 160px);
-      padding: 40px;
-      gap: 40px;
-      justify-content: center;
-      align-items: center;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
 
-    .left-panel, .right-panel {
-      background-color: #fff;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      flex: 1;
-      max-width: 500px;
-      min-width: 280px;
+    .left, .right {
+      flex: 1 1 400px;
+      padding: 20px;
+      box-sizing: border-box;
     }
 
-    .left-panel h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
+    .left img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .left h2 {
+      margin-top: 20px;
       color: #333;
     }
 
-    .left-panel p {
-      font-size: 16px;
-      color: #555;
-    }
-
-    .left-panel img {
-      width: 100%;
+    .right {
+      background-color: rgba(255, 255, 255, 0.96);
+      padding: 30px;
       border-radius: 12px;
-      margin-top: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
-    .form-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .right h3 {
+      margin-bottom: 20px;
+      color: #2e7d32;
     }
 
-    .form-container input[type="text"] {
+    .right input[type="text"] {
       width: 100%;
       padding: 15px;
-      font-size: 18px;
+      font-size: 16px;
       margin-bottom: 20px;
-      border-radius: 8px;
       border: 1px solid #ccc;
+      border-radius: 6px;
     }
 
-    .form-container input[type="submit"] {
-      background-color: #28a745;
+    .right button {
+      width: 100%;
+      padding: 18px;
+      font-size: 18px;
       color: white;
-      font-size: 20px;
-      padding: 15px 30px;
+      background-color: #2e7d32;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      width: 100%;
+      transition: background 0.3s;
     }
 
-    .form-container input[type="submit"]:hover {
-      background-color: #218838;
+    .right button:hover {
+      background-color: #27662a;
     }
 
-    footer {
+    .footer {
       background-color: #333;
       padding: 20px;
       text-align: center;
     }
 
-    footer img {
-      height: 35px;
+    .footer img {
+      height: 40px;
       opacity: 0.9;
     }
 
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
-        padding: 20px;
       }
-
-      .left-panel, .right-panel {
-        width: 100%;
-        max-width: 100%;
-        padding: 20px;
-      }
-
-      header img {
-        height: 40px;
-      }
-
-      .form-container input[type="text"],
-      .form-container input[type="submit"] {
-        font-size: 16px;
-        padding: 12px;
+      .right {
+        margin-top: 30px;
       }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <img src="logo.png" alt="Logo da ONG">
-  </header>
+  <div class="header">
+    <img src="logo.png" alt="Logo Missão África" />
+  </div>
 
   <div class="container">
-    <!-- Missão África -->
-    <div class="left-panel">
+    <div class="left">
+      <img src="africa.png" alt="Imagem África" />
       <h2>Missão África</h2>
       <p>
-        A ONG Missão África nasceu do desejo de combater a miséria em comunidades de Moçambique.
-        Com uma vaquinha, eles arrecadaram fundos para levar água potável e alimentos a uma região necessitada.
+        A ONG Missão África nasceu do desejo de combater a miséria em comunidades de Moçambique. Com uma vaquinha, eles arrecadaram fundos para levar água potável e alimentos a uma região necessitada.
       </p>
-      <img src="africa.png" alt="Imagem da África">
     </div>
-
-    <!-- Formulário -->
-    <div class="right-panel">
-      <form id="nameForm" class="form-container">
-        <input type="text" id="name" name="name" required placeholder="Digite seu nome">
-        <input type="submit" value="Doar para Vaquinha">
+    <div class="right">
+      <h3>Digite seu nome para contribuir:</h3>
+      <form onsubmit="event.preventDefault(); window.location.href='https://seu-checkout.com';">
+        <input type="text" name="nome" placeholder="Seu nome completo" required />
+        <button type="submit">Doar para a vaquinha</button>
       </form>
     </div>
   </div>
 
-  <footer>
-    <img src="logo.png" alt="Logo rodapé">
-  </footer>
-
-  <script>
-    document.getElementById('nameForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const nome = document.getElementById('name').value.trim();
-
-      if (nome) {
-        const checkoutURL = 'https://sualinkdecheckout.com/vaquinha'; // 🔁 Substitua por seu link real
-        window.location.href = `${checkoutURL}?nome=${encodeURIComponent(nome)}`;
-      } else {
-        alert('Por favor, digite seu nome antes de continuar.');
-      }
-    });
-  </script>
-
+  <div class="footer">
+    <img src="logo.png" alt="Logo Missão África" />
+  </div>
 </body>
 </html>
