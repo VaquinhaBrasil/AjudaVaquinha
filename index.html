@@ -23,7 +23,7 @@
       left: 0;
       height: 100%;
       width: 100%;
-      background: rgba(255, 255, 255, 0.93); /* menor opacidade */
+      background: rgba(255, 255, 255, 0.9);
       z-index: -1;
     }
 
@@ -107,6 +107,29 @@
       background-color: #218838;
     }
 
+    .donation-options {
+      display: none;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .donation-options button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .donation-options button:hover {
+      background-color: #218838;
+    }
+
     footer {
       background-color: #333;
       padding: 20px;
@@ -139,6 +162,10 @@
         font-size: 16px;
         padding: 12px;
       }
+
+      .donation-options button {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -159,12 +186,25 @@
       <img src="africa.png" alt="Imagem da África">
     </div>
 
-    <!-- Formulário -->
+    <!-- Formulário e opções -->
     <div class="right-panel">
       <form id="nameForm" class="form-container">
         <input type="text" id="name" name="name" required placeholder="Digite seu nome">
         <input type="submit" value="Doar para Vaquinha">
       </form>
+
+      <div class="donation-options" id="donationOptions">
+        <button onclick="goToCheckout('https://go.disruptybr.com.br/a46js81bpw')">R$ 5,00</button>
+        <button onclick="goToCheckout('https://go.disruptybr.com.br/pslut')">R$ 10,00</button>
+        <button onclick="goToCheckout('https://go.disruptybr.com.br/2e3ar')">R$ 15,00</button>
+        <button onclick="goToCheckout('https://go.disruptybr.com.br/u9uoq')">R$ 20,00</button>
+        <button onclick="goToCheckout('https://go.disruptybr.com.br/usyoo')">R$ 25,00</button>
+        <button onclick="goToCheckout('https://go.disruptybr.com.br/l8b0c')">R$ 30,00</button>
+        <button onclick="goToCheckout('https://go.disruptybr.com.br/vqk7z')">R$ 35,00</button>
+        <button onclick="goToCheckout('https://go.disruptybr.com.br/sbif0')">R$ 40,00</button>
+        <button onclick="goToCheckout('https://go.disruptybr.com.br/y6yhy')">R$ 45,00</button>
+        <button onclick="goToCheckout('https://go.disruptybr.com.br/mhgtb')">R$ 50,00</button>
+      </div>
     </div>
   </div>
 
@@ -178,12 +218,16 @@
       const nome = document.getElementById('name').value.trim();
 
       if (nome) {
-        const checkoutURL = 'https://sualinkdecheckout.com/vaquinha'; // 🔁 Substitua por seu link real
-        window.location.href = `${checkoutURL}?nome=${encodeURIComponent(nome)}`;
+        document.getElementById('nameForm').style.display = 'none';
+        document.getElementById('donationOptions').style.display = 'flex';
       } else {
         alert('Por favor, digite seu nome antes de continuar.');
       }
     });
+
+    function goToCheckout(url) {
+      window.location.href = url;
+    }
   </script>
 
 </body>
