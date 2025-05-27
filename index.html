@@ -12,25 +12,38 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
+      background: url('paiefilho.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85); /* Suaviza a imagem de fundo */
+      z-index: -1;
     }
 
     header {
+      background-color: #28a745;
+      padding: 20px;
       display: flex;
       align-items: center;
-      padding: 20px;
-      background-color: #ffffff;
+      justify-content: flex-start;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     header img {
-      height: 60px;
+      height: 50px;
     }
 
     .container {
       display: flex;
       flex-wrap: wrap;
-      min-height: calc(100vh - 100px);
+      min-height: calc(100vh - 160px);
       padding: 40px;
       gap: 40px;
       justify-content: center;
@@ -94,6 +107,17 @@
       background-color: #218838;
     }
 
+    footer {
+      background-color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer img {
+      height: 40px;
+      opacity: 0.9;
+    }
+
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -127,6 +151,10 @@
       </form>
     </div>
   </div>
+
+  <footer>
+    <img src="logo.png" alt="Logo da ONG menor">
+  </footer>
 
   <script>
     document.getElementById('nameForm').addEventListener('submit', function(e) {
