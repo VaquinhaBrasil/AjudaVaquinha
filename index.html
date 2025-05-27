@@ -23,7 +23,7 @@
       left: 0;
       height: 100%;
       width: 100%;
-      background: rgba(255, 255, 255, 0.85); /* Suaviza a imagem de fundo */
+      background: rgba(255, 255, 255, 0.93); /* menor opacidade */
       z-index: -1;
     }
 
@@ -57,13 +57,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       flex: 1;
       max-width: 500px;
-      min-width: 300px;
-    }
-
-    .left-panel img {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 20px;
+      min-width: 280px;
     }
 
     .left-panel h2 {
@@ -75,6 +69,12 @@
     .left-panel p {
       font-size: 16px;
       color: #555;
+    }
+
+    .left-panel img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 20px;
     }
 
     .form-container {
@@ -114,7 +114,7 @@
     }
 
     footer img {
-      height: 40px;
+      height: 35px;
       opacity: 0.9;
     }
 
@@ -122,6 +122,22 @@
       .container {
         flex-direction: column;
         padding: 20px;
+      }
+
+      .left-panel, .right-panel {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+      }
+
+      header img {
+        height: 40px;
+      }
+
+      .form-container input[type="text"],
+      .form-container input[type="submit"] {
+        font-size: 16px;
+        padding: 12px;
       }
     }
   </style>
@@ -133,7 +149,7 @@
   </header>
 
   <div class="container">
-    <!-- Lado esquerdo: Missão África -->
+    <!-- Missão África -->
     <div class="left-panel">
       <h2>Missão África</h2>
       <p>
@@ -143,7 +159,7 @@
       <img src="africa.png" alt="Imagem da África">
     </div>
 
-    <!-- Lado direito: Formulário -->
+    <!-- Formulário -->
     <div class="right-panel">
       <form id="nameForm" class="form-container">
         <input type="text" id="name" name="name" required placeholder="Digite seu nome">
@@ -153,7 +169,7 @@
   </div>
 
   <footer>
-    <img src="logo.png" alt="Logo da ONG menor">
+    <img src="logo.png" alt="Logo rodapé">
   </footer>
 
   <script>
@@ -162,7 +178,7 @@
       const nome = document.getElementById('name').value.trim();
 
       if (nome) {
-        const checkoutURL = 'https://example.com/checkout'; // Substitua pela URL real
+        const checkoutURL = 'https://sualinkdecheckout.com/vaquinha'; // 🔁 Substitua por seu link real
         window.location.href = `${checkoutURL}?nome=${encodeURIComponent(nome)}`;
       } else {
         alert('Por favor, digite seu nome antes de continuar.');
